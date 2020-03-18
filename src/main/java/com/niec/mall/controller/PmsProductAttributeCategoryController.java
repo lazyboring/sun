@@ -2,6 +2,8 @@ package com.niec.mall.controller;
 
 import com.niec.mall.entity.PmsProductAttributeCategory;
 import com.niec.mall.service.PmsProductAttributeCategoryService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -14,6 +16,7 @@ import javax.annotation.Resource;
  */
 @RestController
 @RequestMapping("pmsProductAttributeCategory")
+@Api(description = "产品属性分类")
 public class PmsProductAttributeCategoryController {
     /**
      * 服务对象
@@ -27,6 +30,7 @@ public class PmsProductAttributeCategoryController {
      * @param id 主键
      * @return 单条数据
      */
+    @ApiOperation(value = "获取")
     @GetMapping("selectOne")
     public PmsProductAttributeCategory selectOne(Long id) {
         return this.pmsProductAttributeCategoryService.queryById(id);

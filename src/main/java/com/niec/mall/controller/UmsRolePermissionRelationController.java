@@ -2,6 +2,8 @@ package com.niec.mall.controller;
 
 import com.niec.mall.entity.UmsRolePermissionRelation;
 import com.niec.mall.service.UmsRolePermissionRelationService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -14,6 +16,7 @@ import javax.annotation.Resource;
  */
 @RestController
 @RequestMapping("umsRolePermissionRelation")
+@Api(description = "后台用户角色和权限关系")
 public class UmsRolePermissionRelationController {
     /**
      * 服务对象
@@ -27,6 +30,7 @@ public class UmsRolePermissionRelationController {
      * @param id 主键
      * @return 单条数据
      */
+    @ApiOperation(value = "获取")
     @GetMapping("selectOne")
     public UmsRolePermissionRelation selectOne(Long id) {
         return this.umsRolePermissionRelationService.queryById(id);

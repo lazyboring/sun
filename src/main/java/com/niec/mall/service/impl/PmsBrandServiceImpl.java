@@ -3,6 +3,7 @@ package com.niec.mall.service.impl;
 import com.niec.mall.entity.PmsBrand;
 import com.niec.mall.dao.PmsBrandDao;
 import com.niec.mall.service.PmsBrandService;
+import com.niec.mall.vo.PmsBrandListDto;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -75,5 +76,16 @@ public class PmsBrandServiceImpl implements PmsBrandService {
     @Override
     public boolean deleteById(Long id) {
         return this.pmsBrandDao.deleteById(id) > 0;
+    }
+
+    /**
+     * 通过工厂状态查询品牌列表
+     * @param factoryStatus
+     * @return
+     */
+    @Override
+    public List<PmsBrandListDto> queryListByFactoryStatus(Integer factoryStatus) {
+
+        return pmsBrandDao.queryListByFactoryStatus(factoryStatus);
     }
 }

@@ -1,8 +1,10 @@
 package com.niec.mall.dao;
 
 import com.niec.mall.entity.PmsBrand;
+import com.niec.mall.vo.PmsBrandListDto;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+
 import java.util.List;
 
 /**
@@ -64,4 +66,10 @@ public interface PmsBrandDao {
      */
     int deleteById(Long id);
 
+    /**
+     * 通过工厂状态查询品牌列表
+     * @param factoryStatus
+     * @return
+     */
+    List<PmsBrandListDto> queryListByFactoryStatus(Integer factoryStatus);
 }

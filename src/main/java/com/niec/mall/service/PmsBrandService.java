@@ -52,4 +52,5 @@ public interface PmsBrandService {
      */
     boolean deleteById(Long id);
 
+    List queryListByFactoryStatus(Integer factoryStatus);
 }

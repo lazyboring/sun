@@ -15,6 +15,11 @@
         <result property="bigPic" column="big_pic" jdbcType="VARCHAR"/>
         <result property="brandStory" column="brand_story" jdbcType="VARCHAR"/>
     </resultMap>
+    
+    <resultMap type="com.niec.mall.vo.PmsBrandListDto" id="PmsBrandListMap" >
+        <result property="id" column="id" jdbcType="BIGINT"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+    </resultMap>
 
     <!--查询单个-->
     <select id="queryById" resultMap="PmsBrandMap">
@@ -72,6 +77,10 @@
                 and brand_story = #{brandStory}
             </if>
         </where>
+    </select>
+   <!--根据工厂状态查询品牌列表 -->
+    <select id="queryListByFactoryStatus" resultMap="PmsBrandListMap">
+        select id,name from pms_brand p where p.factory_status = #{factoryStatus}
     </select>
 
     <!--新增所有列-->
