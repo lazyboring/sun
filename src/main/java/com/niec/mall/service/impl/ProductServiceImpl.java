@@ -26,4 +26,9 @@ public class ProductServiceImpl implements ProductService {
     public ProductDto queryById(Long id) {
         return null;
     }
+
+    @Override
+    public Boolean addProduct(ProductDto productDto) {
+        return true;
+    }
 }

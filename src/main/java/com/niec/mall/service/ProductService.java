@@ -10,4 +10,6 @@ import com.niec.mall.vo.ProductDto;
 public interface ProductService {
 
     ProductDto queryById(Long id);
+
+    Boolean addProduct(ProductDto productDto);
 }

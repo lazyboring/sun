@@ -1,7 +1,9 @@
 package com.niec.mall.service.impl;
 
-import com.niec.mall.entity.PmsBrand;
 import com.niec.mall.dao.PmsBrandDao;
+import com.niec.mall.entity.PmsBrand;
+import com.niec.mall.enums.HackerBusinessEnum;
+import com.niec.mall.exception.HackerBusinessException;
 import com.niec.mall.service.PmsBrandService;
 import com.niec.mall.vo.PmsBrandListDto;
 import org.springframework.stereotype.Service;
@@ -28,7 +30,11 @@ public class PmsBrandServiceImpl implements PmsBrandService {
      */
     @Override
     public PmsBrand queryById(Long id) {
-        return this.pmsBrandDao.queryById(id);
+        PmsBrand pmsBrand = pmsBrandDao.queryById(id);
+        if (null== pmsBrand){
+            throw new HackerBusinessException(HackerBusinessEnum.BUSINESS_OBJECT_IS_NULL);
+        }
+        return pmsBrand;
     }
 
     /**
@@ -75,6 +81,11 @@ public class PmsBrandServiceImpl implements PmsBrandService {
      */
     @Override
     public boolean deleteById(Long id) {
+        PmsBrand pmsBrand = pmsBrandDao.queryById(id);
+        if (null == pmsBrand){
+            throw new HackerBusinessException(HackerBusinessEnum.OPERATING_OBJECT_IS_NULL);
+        }
+
         return this.pmsBrandDao.deleteById(id) > 0;
     }
 
