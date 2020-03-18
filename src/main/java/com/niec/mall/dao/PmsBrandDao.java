@@ -1,5 +1,7 @@
 package com.niec.mall.dao;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.niec.mall.dto.PmsBrandDto;
 import com.niec.mall.entity.PmsBrand;
 import com.niec.mall.vo.PmsBrandListDto;
 import org.apache.ibatis.annotations.Mapper;
@@ -14,7 +16,7 @@ import java.util.List;
  * @since 2020-03-16 11:01:48
  */
 @Mapper
-public interface PmsBrandDao {
+public interface PmsBrandDao extends BaseMapper<PmsBrandDto> {
 
     /**
      * 通过ID查询单条数据
