@@ -1,8 +1,13 @@
 package com.niec.mall.service.impl;
 
+import com.github.pagehelper.Page;
+import com.niec.mall.dto.ProductDto;
 import com.niec.mall.entity.PmsProduct;
 import com.niec.mall.dao.PmsProductDao;
+import com.niec.mall.enums.HackerBusinessEnum;
+import com.niec.mall.exception.HackerBusinessException;
 import com.niec.mall.service.PmsProductService;
+import com.niec.mall.vo.PmsProductDto;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -74,6 +79,22 @@ public class PmsProductServiceImpl implements PmsProductService {
      */
     @Override
     public boolean deleteById(Long id) {
+        PmsProduct pmsProduct = queryById(id);
+        if (null == pmsProduct){
+            throw new HackerBusinessException(HackerBusinessEnum.OPERATING_OBJECT_IS_NULL);
+        }
         return this.pmsProductDao.deleteById(id) > 0;
+    }
+
+    /**
+     *
+     * @param productDto
+     * @return
+     */
+    @Override
+    public List<PmsProductDto> queryListByStatus(ProductDto productDto) {
+        List<PmsProductDto> list = pmsProductDao.queryListByStatus(productDto.getId());
+        Page<PmsProductDto> page = new Page<>(productDto.getPage(), productDto.getLimit());
+        return list;
     }
 }

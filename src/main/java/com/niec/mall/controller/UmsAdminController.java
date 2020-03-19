@@ -2,6 +2,7 @@ package com.niec.mall.controller;
 
 import com.niec.mall.entity.UmsAdmin;
 import com.niec.mall.service.UmsAdminService;
+import com.niec.mall.vo.ResultJson;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
@@ -34,6 +35,13 @@ public class UmsAdminController {
     @GetMapping("selectOne")
     public UmsAdmin selectOne(Long id) {
         return this.umsAdminService.queryById(id);
+    }
+
+
+    @ApiOperation(value = "查询用户列表")
+    @GetMapping("list")
+    public ResultJson queryListByStatus(Integer status){
+        return ResultJson.ok(umsAdminService.queryListByStatus(status));
     }
 
 }

@@ -2,7 +2,10 @@ package com.niec.mall.service.impl;
 
 import com.niec.mall.entity.UmsAdmin;
 import com.niec.mall.dao.UmsAdminDao;
+import com.niec.mall.enums.HackerBusinessEnum;
+import com.niec.mall.exception.HackerBusinessException;
 import com.niec.mall.service.UmsAdminService;
+import com.niec.mall.vo.UserAdminVo;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -34,7 +37,7 @@ public class UmsAdminServiceImpl implements UmsAdminService {
      * 查询多条数据
      *
      * @param offset 查询起始位置
-     * @param limit 查询条数
+     * @param limit  查询条数
      * @return 对象列表
      */
     @Override
@@ -75,5 +78,14 @@ public class UmsAdminServiceImpl implements UmsAdminService {
     @Override
     public boolean deleteById(Long id) {
         return this.umsAdminDao.deleteById(id) > 0;
+    }
+
+    @Override
+    public List<UserAdminVo> queryListByStatus(Integer status) {
+        List<UserAdminVo> list = umsAdminDao.queryListByStatus(status);
+        if (list.size() == 0) {
+            throw new HackerBusinessException(HackerBusinessEnum.OPERATING_OBJECT_IS_NULL);
+        }
+        return list;
     }
 }

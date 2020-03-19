@@ -1,6 +1,9 @@
 package com.niec.mall.service;
 
+import com.niec.mall.dto.ProductDto;
 import com.niec.mall.entity.PmsProduct;
+import com.niec.mall.vo.PmsProductDto;
+
 import java.util.List;
 
 /**
@@ -52,4 +55,10 @@ public interface PmsProductService {
      */
     boolean deleteById(Long id);
 
+    /**
+     * 查询列表
+     * @param id
+     * @return
+     */
+    List<PmsProductDto> queryListByStatus(ProductDto productDto);
 }
