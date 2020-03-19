@@ -2,6 +2,7 @@ package com.niec.mall.service;
 
 import com.niec.mall.entity.UmsAdmin;
 import com.niec.mall.vo.UserAdminVo;
+import com.niec.mall.vo.UserAuthorityVo;
 
 import java.util.List;
 
@@ -55,4 +56,7 @@ public interface UmsAdminService {
     boolean deleteById(Long id);
 
     List<UserAdminVo> queryListByStatus(Integer status);
+
+
+    UserAuthorityVo queryUserAuthority(Long id);
 }

@@ -5,6 +5,7 @@ import com.niec.mall.dao.UmsAdminDao;
 import com.niec.mall.enums.HackerBusinessEnum;
 import com.niec.mall.exception.HackerBusinessException;
 import com.niec.mall.service.UmsAdminService;
+import com.niec.mall.vo.UserAuthorityVo;
 import com.niec.mall.vo.UserAdminVo;
 import org.springframework.stereotype.Service;
 
@@ -87,5 +88,12 @@ public class UmsAdminServiceImpl implements UmsAdminService {
             throw new HackerBusinessException(HackerBusinessEnum.OPERATING_OBJECT_IS_NULL);
         }
         return list;
+    }
+
+    @Override
+    public UserAuthorityVo queryUserAuthority(Long id) {
+       // Long id = umsAdminDao.queryIdByName(name);
+        return umsAdminDao.queryUserAuthorityVo(id);
+
     }
 }

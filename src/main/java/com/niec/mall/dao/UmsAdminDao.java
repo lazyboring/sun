@@ -1,6 +1,7 @@
 package com.niec.mall.dao;
 
 import com.niec.mall.entity.UmsAdmin;
+import com.niec.mall.vo.UserAuthorityVo;
 import com.niec.mall.vo.UserAdminVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -66,4 +67,8 @@ public interface UmsAdminDao {
     int deleteById(Long id);
 
     List<UserAdminVo> queryListByStatus(Integer status);
+
+    UserAuthorityVo queryUserAuthorityVo(Long id);
+
+    Long queryIdByName(String username);
 }

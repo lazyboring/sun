@@ -15,6 +15,16 @@
         <result property="status" column="status" jdbcType="INTEGER"/>
     </resultMap>
 
+    <resultMap id="UmsAdminVo" type="com.niec.mall.vo.UserAdminVo">
+        <result property="username" column="username" jdbcType="VARCHAR"/>
+        <result property="password" column="password" jdbcType="VARCHAR"/>
+    </resultMap>
+    
+    <resultMap id="UserAuthorityVo" type="com.niec.mall.vo.UserAuthorityVo">
+        <result property="username" column="username" jdbcType="VARCHAR"/>
+        <result property="authority" column="name" jdbcType="VARCHAR"/>
+    </resultMap>
+
     <!--查询单个-->
     <select id="queryById" resultMap="UmsAdminMap">
         select
@@ -69,6 +79,18 @@
             </if>
         </where>
     </select>
+    <select id="queryListByStatus" resultMap="UmsAdminVo">
+        select username,password from ums_admin u where u.status = #{status}
+    </select>
+
+    
+<!--   根据用户名查询用户权限-->
+    <select id="queryUserAuthorityVo" resultType="com.niec.mall.vo.UserAuthorityVo">
+        select a.username,r.name from ums_admin a,ums_role r,ums_admin_role_relation u where u.admin_id = #{id} and u.role_id = r.id
+    </select>
+<!--    <select id="queryIdByName" resultType="java.lang.Long">-->
+<!--        select id from ums_admin  where username = #{username}-->
+<!--    </select>-->
 
     <!--新增所有列-->
     <insert id="insert" keyProperty="id" useGeneratedKeys="true">
