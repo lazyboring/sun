@@ -1,8 +1,13 @@
 package com.niec.mall.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.niec.mall.dao.CommodityMapper;
+import com.niec.mall.dto.CommodityDto;
 import com.niec.mall.entity.Commodity;
+import com.niec.mall.enums.HackerBusinessEnum;
+import com.niec.mall.exception.HackerBusinessException;
 import com.niec.mall.service.CommodityService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -14,7 +19,7 @@ import javax.annotation.Resource;
  * @since 2020-03-19 20:13:34
  */
 @Service("commodityService")
-public class CommodityServiceImpl implements CommodityService {
+public class CommodityServiceImpl extends ServiceImpl<CommodityMapper, Commodity> implements CommodityService {
     @Resource
     private CommodityMapper commodityMapper;
 
@@ -40,6 +45,32 @@ public class CommodityServiceImpl implements CommodityService {
     public Commodity insert(Commodity commodity) {
         this.commodityMapper.insert(commodity);
         return commodity;
+    }
+
+    /**
+     * 更新数据
+     *
+     * @param commodityDto
+     * @return
+     */
+    public CommodityDto update(CommodityDto commodityDto) {
+        Commodity commodity = new Commodity();
+        BeanUtils.copyProperties(commodityDto, commodity);
+        int rstNum = baseMapper.updateById(commodity);
+        if (rstNum != 1) {
+            throw new HackerBusinessException(HackerBusinessEnum.COMMODITY_NOT_EXIST);
+        }
+
+        return commodityDto;
+    }
+
+    @Override
+    public CommodityDto add(CommodityDto commodityDto) {
+        Commodity commodity = new Commodity();
+        BeanUtils.copyProperties(commodityDto,commodity);
+        baseMapper.insert(commodity);
+        commodityDto.setId(commodity.getId());
+        return commodityDto;
     }
 
 

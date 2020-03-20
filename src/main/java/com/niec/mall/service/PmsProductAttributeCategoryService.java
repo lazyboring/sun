@@ -1,7 +1,6 @@
 package com.niec.mall.service;
 
 import com.niec.mall.entity.PmsProductAttributeCategory;
-import java.util.List;
 
 /**
  * 产品属性分类表(PmsProductAttributeCategory)表服务接口
@@ -19,14 +18,6 @@ public interface PmsProductAttributeCategoryService {
      */
     PmsProductAttributeCategory queryById(Long id);
 
-    /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
-     */
-    List<PmsProductAttributeCategory> queryAllByLimit(int offset, int limit);
 
     /**
      * 新增数据
@@ -36,13 +27,6 @@ public interface PmsProductAttributeCategoryService {
      */
     PmsProductAttributeCategory insert(PmsProductAttributeCategory pmsProductAttributeCategory);
 
-    /**
-     * 修改数据
-     *
-     * @param pmsProductAttributeCategory 实例对象
-     * @return 实例对象
-     */
-    PmsProductAttributeCategory update(PmsProductAttributeCategory pmsProductAttributeCategory);
 
     /**
      * 通过主键删除数据

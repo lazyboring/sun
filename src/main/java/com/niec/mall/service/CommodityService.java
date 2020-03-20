@@ -1,5 +1,6 @@
 package com.niec.mall.service;
 
+import com.niec.mall.dto.CommodityDto;
 import com.niec.mall.entity.Commodity;
 
 /**
@@ -38,4 +39,7 @@ public interface CommodityService {
      */
     boolean deleteById(Long id);
 
+    CommodityDto update(CommodityDto commodityDto);
+
+    CommodityDto add(CommodityDto commodityDto);
 }

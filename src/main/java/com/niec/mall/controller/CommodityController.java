@@ -1,11 +1,15 @@
 package com.niec.mall.controller;
 
+import com.alibaba.druid.sql.visitor.functions.Insert;
+import com.baomidou.mybatisplus.core.conditions.update.Update;
+import com.niec.mall.dto.CommodityDto;
 import com.niec.mall.entity.Commodity;
 import com.niec.mall.service.CommodityService;
+import com.niec.mall.vo.ResultJson;
 import io.swagger.annotations.Api;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -31,9 +35,20 @@ public class CommodityController {
      * @param id 主键
      * @return 单条数据
      */
+    @ApiOperation(value = "根据id查询")
     @GetMapping("selectOne")
     public Commodity selectOne(Long id) {
         return this.commodityService.queryById(id);
     }
 
+    @ApiOperation(value = "添加商品")
+    @PostMapping()
+    public ResultJson add(@RequestBody @Validated(Insert.class) CommodityDto commodityDto){
+        return ResultJson.ok(commodityService.add(commodityDto));
+    }
+    @ApiOperation("更新")
+    @PutMapping("update")
+    public ResultJson update(@RequestBody @Validated(Update.class) CommodityDto commodityDto){
+        return ResultJson.ok(commodityService.update(commodityDto));
+    }
 }

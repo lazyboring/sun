@@ -3,6 +3,7 @@ package com.niec.mall.entity;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 /**
  * (Commodity)实体类
@@ -18,7 +19,7 @@ public class Commodity implements Serializable {
     
     private String name;
     
-    private Integer price;
+    private BigDecimal price;
 
 
 
