@@ -1,13 +1,15 @@
 package com.niec.mall.service.impl;
 
 import com.github.pagehelper.Page;
+import com.niec.mall.dto.PmsProductDto;
 import com.niec.mall.dto.ProductDto;
 import com.niec.mall.entity.PmsProduct;
 import com.niec.mall.dao.PmsProductDao;
 import com.niec.mall.enums.HackerBusinessEnum;
 import com.niec.mall.exception.HackerBusinessException;
 import com.niec.mall.service.PmsProductService;
-import com.niec.mall.vo.PmsProductDto;
+import com.niec.mall.vo.PmsProductVo;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -62,12 +64,17 @@ public class PmsProductServiceImpl implements PmsProductService {
     /**
      * 修改数据
      *
-     * @param pmsProduct 实例对象
+     * @param productDto 实例对象
      * @return 实例对象
      */
     @Override
-    public PmsProduct update(PmsProduct pmsProduct) {
-        this.pmsProductDao.update(pmsProduct);
+    public PmsProduct update(PmsProductDto productDto) {
+        PmsProduct pmsProduct = new PmsProduct();
+        BeanUtils.copyProperties(productDto,pmsProduct);
+        int update = pmsProductDao.update(pmsProduct);
+        if (update!=1){
+            throw new HackerBusinessException(HackerBusinessEnum.UPDATA_OBJECT_IS_FAIL);
+        }
         return this.queryById(pmsProduct.getId());
     }
 
@@ -92,9 +99,9 @@ public class PmsProductServiceImpl implements PmsProductService {
      * @return
      */
     @Override
-    public List<PmsProductDto> queryListByStatus(ProductDto productDto) {
-        List<PmsProductDto> list = pmsProductDao.queryListByStatus(productDto.getId());
-        Page<PmsProductDto> page = new Page<>(productDto.getPage(), productDto.getLimit());
+    public List<PmsProductVo> queryListByStatus(ProductDto productDto) {
+        List<PmsProductVo> list = pmsProductDao.queryListByStatus(productDto.getId());
+        Page<PmsProductVo> page = new Page<>(productDto.getPage(), productDto.getLimit());
         return list;
     }
 }

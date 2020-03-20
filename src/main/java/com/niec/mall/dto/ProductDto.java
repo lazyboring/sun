@@ -14,4 +14,8 @@ public class ProductDto extends BaseQuery {
 
     @ApiModelProperty(value = "上新编号",example = "1")
     private Integer id;
+
+    private String name;
+
+    private Double price;
 }

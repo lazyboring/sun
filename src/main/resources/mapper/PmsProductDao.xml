@@ -47,7 +47,7 @@
         <result property="productCategoryName" column="product_category_name" jdbcType="VARCHAR"/>
     </resultMap>
 
-    <resultMap id="PmsProductDto" type="com.niec.mall.vo.PmsProductDto">
+    <resultMap id="PmsProductDto" type="com.niec.mall.vo.PmsProductVo">
         <result property="brandID" column="brand_id" jdbcType="BIGINT"/>
         <result property="name" column="name" jdbcType="VARCHAR"/>
     </resultMap>
@@ -203,7 +203,7 @@
         </where>
     </select>
   <!--根据上新状态查询列表  -->
-    <select id="queryListByStatus" resultType="com.niec.mall.vo.PmsProductDto">
+    <select id="queryListByStatus" resultType="com.niec.mall.vo.PmsProductVo">
         select brand_id,name from pms_product where new_status = #{id}
     </select>
 

@@ -8,6 +8,6 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
 
-mybatis:
+mybatis-plus:
   mapper-locations: classpath:/mapper/*Dao.xml
   type-aliases-package: com.niec.mall.entity

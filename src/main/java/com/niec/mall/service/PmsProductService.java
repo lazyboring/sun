@@ -1,8 +1,9 @@
 package com.niec.mall.service;
 
+import com.niec.mall.dto.PmsProductDto;
 import com.niec.mall.dto.ProductDto;
 import com.niec.mall.entity.PmsProduct;
-import com.niec.mall.vo.PmsProductDto;
+import com.niec.mall.vo.PmsProductVo;
 
 import java.util.List;
 
@@ -43,9 +44,10 @@ public interface PmsProductService {
      * 修改数据
      *
      * @param pmsProduct 实例对象
+     * @param productDto
      * @return 实例对象
      */
-    PmsProduct update(PmsProduct pmsProduct);
+    PmsProduct update(PmsProductDto productDto);
 
     /**
      * 通过主键删除数据
@@ -60,5 +62,5 @@ public interface PmsProductService {
      * @param id
      * @return
      */
-    List<PmsProductDto> queryListByStatus(ProductDto productDto);
+    List<PmsProductVo> queryListByStatus(ProductDto productDto);
 }

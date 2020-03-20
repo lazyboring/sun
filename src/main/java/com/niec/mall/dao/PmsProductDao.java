@@ -1,7 +1,7 @@
 package com.niec.mall.dao;
 
 import com.niec.mall.entity.PmsProduct;
-import com.niec.mall.vo.PmsProductDto;
+import com.niec.mall.vo.PmsProductVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import java.util.List;
@@ -65,5 +65,5 @@ public interface PmsProductDao {
      */
     int deleteById(Long id);
 
-    List<PmsProductDto> queryListByStatus(Integer id);
+    List<PmsProductVo> queryListByStatus(Integer id);
 }

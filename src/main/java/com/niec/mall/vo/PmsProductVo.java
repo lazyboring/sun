@@ -5,7 +5,7 @@ package com.niec.mall.vo;
  * @description
  * @date : 2020-03-19 10:51
  */
-public class PmsProductDto {
+public class PmsProductVo {
     private static final long serialVersionUID = -8000093742234395181L;
 
     public String brandID;
