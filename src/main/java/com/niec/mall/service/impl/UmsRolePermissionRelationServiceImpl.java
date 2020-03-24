@@ -1,12 +1,12 @@
 package com.niec.mall.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.niec.mall.dao.UmsRolePermissionRelationMapper;
 import com.niec.mall.entity.UmsRolePermissionRelation;
-import com.niec.mall.dao.UmsRolePermissionRelationDao;
 import com.niec.mall.service.UmsRolePermissionRelationService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * 后台用户角色和权限关系表(UmsRolePermissionRelation)表服务实现类
@@ -15,9 +15,9 @@ import java.util.List;
  * @since 2020-03-16 11:01:51
  */
 @Service("umsRolePermissionRelationService")
-public class UmsRolePermissionRelationServiceImpl implements UmsRolePermissionRelationService {
+public class UmsRolePermissionRelationServiceImpl extends ServiceImpl<UmsRolePermissionRelationMapper,UmsRolePermissionRelation> implements UmsRolePermissionRelationService {
     @Resource
-    private UmsRolePermissionRelationDao umsRolePermissionRelationDao;
+    private UmsRolePermissionRelationMapper umsRolePermissionRelationMapper;
 
     /**
      * 通过ID查询单条数据
@@ -27,20 +27,9 @@ public class UmsRolePermissionRelationServiceImpl implements UmsRolePermissionRe
      */
     @Override
     public UmsRolePermissionRelation queryById(Long id) {
-        return this.umsRolePermissionRelationDao.queryById(id);
+        return this.umsRolePermissionRelationMapper.selectById(id);
     }
 
-    /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
-     */
-    @Override
-    public List<UmsRolePermissionRelation> queryAllByLimit(int offset, int limit) {
-        return this.umsRolePermissionRelationDao.queryAllByLimit(offset, limit);
-    }
 
     /**
      * 新增数据
@@ -50,21 +39,11 @@ public class UmsRolePermissionRelationServiceImpl implements UmsRolePermissionRe
      */
     @Override
     public UmsRolePermissionRelation insert(UmsRolePermissionRelation umsRolePermissionRelation) {
-        this.umsRolePermissionRelationDao.insert(umsRolePermissionRelation);
+        this.umsRolePermissionRelationMapper.insert(umsRolePermissionRelation);
         return umsRolePermissionRelation;
     }
 
-    /**
-     * 修改数据
-     *
-     * @param umsRolePermissionRelation 实例对象
-     * @return 实例对象
-     */
-    @Override
-    public UmsRolePermissionRelation update(UmsRolePermissionRelation umsRolePermissionRelation) {
-        this.umsRolePermissionRelationDao.update(umsRolePermissionRelation);
-        return this.queryById(umsRolePermissionRelation.getId());
-    }
+
 
     /**
      * 通过主键删除数据
@@ -74,6 +53,6 @@ public class UmsRolePermissionRelationServiceImpl implements UmsRolePermissionRe
      */
     @Override
     public boolean deleteById(Long id) {
-        return this.umsRolePermissionRelationDao.deleteById(id) > 0;
+        return this.umsRolePermissionRelationMapper.deleteById(id) > 0;
     }
 }

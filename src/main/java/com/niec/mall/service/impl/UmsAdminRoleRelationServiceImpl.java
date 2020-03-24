@@ -1,12 +1,12 @@
 package com.niec.mall.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.niec.mall.dao.UmsAdminRoleRelationMapper;
 import com.niec.mall.entity.UmsAdminRoleRelation;
-import com.niec.mall.dao.UmsAdminRoleRelationDao;
 import com.niec.mall.service.UmsAdminRoleRelationService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * 后台用户和角色关系表(UmsAdminRoleRelation)表服务实现类
@@ -15,9 +15,9 @@ import java.util.List;
  * @since 2020-03-16 11:01:51
  */
 @Service("umsAdminRoleRelationService")
-public class UmsAdminRoleRelationServiceImpl implements UmsAdminRoleRelationService {
+public class UmsAdminRoleRelationServiceImpl extends ServiceImpl<UmsAdminRoleRelationMapper,UmsAdminRoleRelation> implements UmsAdminRoleRelationService {
     @Resource
-    private UmsAdminRoleRelationDao umsAdminRoleRelationDao;
+    private UmsAdminRoleRelationMapper umsAdminRoleRelationMapper;
 
     /**
      * 通过ID查询单条数据
@@ -27,20 +27,9 @@ public class UmsAdminRoleRelationServiceImpl implements UmsAdminRoleRelationServ
      */
     @Override
     public UmsAdminRoleRelation queryById(Long id) {
-        return this.umsAdminRoleRelationDao.queryById(id);
+        return this.umsAdminRoleRelationMapper.selectById(id);
     }
 
-    /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
-     */
-    @Override
-    public List<UmsAdminRoleRelation> queryAllByLimit(int offset, int limit) {
-        return this.umsAdminRoleRelationDao.queryAllByLimit(offset, limit);
-    }
 
     /**
      * 新增数据
@@ -50,21 +39,10 @@ public class UmsAdminRoleRelationServiceImpl implements UmsAdminRoleRelationServ
      */
     @Override
     public UmsAdminRoleRelation insert(UmsAdminRoleRelation umsAdminRoleRelation) {
-        this.umsAdminRoleRelationDao.insert(umsAdminRoleRelation);
+        this.umsAdminRoleRelationMapper.insert(umsAdminRoleRelation);
         return umsAdminRoleRelation;
     }
 
-    /**
-     * 修改数据
-     *
-     * @param umsAdminRoleRelation 实例对象
-     * @return 实例对象
-     */
-    @Override
-    public UmsAdminRoleRelation update(UmsAdminRoleRelation umsAdminRoleRelation) {
-        this.umsAdminRoleRelationDao.update(umsAdminRoleRelation);
-        return this.queryById(umsAdminRoleRelation.getId());
-    }
 
     /**
      * 通过主键删除数据
@@ -74,6 +52,6 @@ public class UmsAdminRoleRelationServiceImpl implements UmsAdminRoleRelationServ
      */
     @Override
     public boolean deleteById(Long id) {
-        return this.umsAdminRoleRelationDao.deleteById(id) > 0;
+        return this.umsAdminRoleRelationMapper.deleteById(id) > 0;
     }
 }

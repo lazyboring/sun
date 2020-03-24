@@ -1,19 +1,14 @@
 package com.niec.mall.service.impl;
 
-import com.github.pagehelper.Page;
-import com.niec.mall.dto.PmsProductDto;
-import com.niec.mall.dto.ProductDto;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.niec.mall.dao.PmsProductMapper;
 import com.niec.mall.entity.PmsProduct;
-import com.niec.mall.dao.PmsProductDao;
 import com.niec.mall.enums.HackerBusinessEnum;
 import com.niec.mall.exception.HackerBusinessException;
 import com.niec.mall.service.PmsProductService;
-import com.niec.mall.vo.PmsProductVo;
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * 商品信息(PmsProduct)表服务实现类
@@ -22,9 +17,9 @@ import java.util.List;
  * @since 2020-03-16 11:01:51
  */
 @Service("pmsProductService")
-public class PmsProductServiceImpl implements PmsProductService {
+public class PmsProductServiceImpl extends ServiceImpl<PmsProductMapper,PmsProduct> implements PmsProductService {
     @Resource
-    private PmsProductDao pmsProductDao;
+    private PmsProductMapper pmsProductMapper;
 
     /**
      * 通过ID查询单条数据
@@ -34,20 +29,9 @@ public class PmsProductServiceImpl implements PmsProductService {
      */
     @Override
     public PmsProduct queryById(Long id) {
-        return this.pmsProductDao.queryById(id);
+        return this.pmsProductMapper.selectById(id);
     }
 
-    /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
-     */
-    @Override
-    public List<PmsProduct> queryAllByLimit(int offset, int limit) {
-        return this.pmsProductDao.queryAllByLimit(offset, limit);
-    }
 
     /**
      * 新增数据
@@ -57,26 +41,11 @@ public class PmsProductServiceImpl implements PmsProductService {
      */
     @Override
     public PmsProduct insert(PmsProduct pmsProduct) {
-        this.pmsProductDao.insert(pmsProduct);
+        this.pmsProductMapper.insert(pmsProduct);
         return pmsProduct;
     }
 
-    /**
-     * 修改数据
-     *
-     * @param productDto 实例对象
-     * @return 实例对象
-     */
-    @Override
-    public PmsProduct update(PmsProductDto productDto) {
-        PmsProduct pmsProduct = new PmsProduct();
-        BeanUtils.copyProperties(productDto,pmsProduct);
-        int update = pmsProductDao.update(pmsProduct);
-        if (update!=1){
-            throw new HackerBusinessException(HackerBusinessEnum.UPDATA_OBJECT_IS_FAIL);
-        }
-        return this.queryById(pmsProduct.getId());
-    }
+
 
     /**
      * 通过主键删除数据
@@ -90,18 +59,8 @@ public class PmsProductServiceImpl implements PmsProductService {
         if (null == pmsProduct){
             throw new HackerBusinessException(HackerBusinessEnum.OPERATING_OBJECT_IS_NULL);
         }
-        return this.pmsProductDao.deleteById(id) > 0;
+        return this.pmsProductMapper.deleteById(id) > 0;
     }
 
-    /**
-     *
-     * @param productDto
-     * @return
-     */
-    @Override
-    public List<PmsProductVo> queryListByStatus(ProductDto productDto) {
-        List<PmsProductVo> list = pmsProductDao.queryListByStatus(productDto.getId());
-        Page<PmsProductVo> page = new Page<>(productDto.getPage(), productDto.getLimit());
-        return list;
-    }
+
 }

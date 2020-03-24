@@ -1,12 +1,12 @@
 package com.niec.mall.service.impl;
 
-import com.niec.mall.entity.PmsProductAttributeCategory;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.niec.mall.dao.PmsProductAttributeCategoryMapper;
+import com.niec.mall.entity.PmsProductAttributeCategory;
 import com.niec.mall.service.PmsProductAttributeCategoryService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * 产品属性分类表(PmsProductAttributeCategory)表服务实现类
@@ -15,7 +15,7 @@ import java.util.List;
  * @since 2020-03-16 11:01:51
  */
 @Service("pmsProductAttributeCategoryService")
-public class PmsProductAttributeCategoryServiceImpl implements PmsProductAttributeCategoryService {
+public class PmsProductAttributeCategoryServiceImpl extends ServiceImpl<PmsProductAttributeCategoryMapper,PmsProductAttributeCategory> implements PmsProductAttributeCategoryService {
     @Resource
     private PmsProductAttributeCategoryMapper pmsProductAttributeCategoryMapper;
 

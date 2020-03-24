@@ -1,6 +1,9 @@
 package com.niec.mall.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -12,10 +15,13 @@ import java.math.BigDecimal;
  * @since 2020-03-19 20:13:34
  */
 @Data
+@EqualsAndHashCode(callSuper = false)
+@Accessors(chain = true)
 public class Commodity implements Serializable {
     private static final long serialVersionUID = 265425068772829861L;
-    
-    private Long id;
+
+    @TableId("id")
+    private String id;
     
     private String name;
     

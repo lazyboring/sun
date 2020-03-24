@@ -1,7 +1,6 @@
 package com.niec.mall.service;
 
 import com.niec.mall.entity.UmsRole;
-import java.util.List;
 
 /**
  * 后台用户角色表(UmsRole)表服务接口
@@ -19,14 +18,6 @@ public interface UmsRoleService {
      */
     UmsRole queryById(Long id);
 
-    /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
-     */
-    List<UmsRole> queryAllByLimit(int offset, int limit);
 
     /**
      * 新增数据
@@ -36,13 +27,6 @@ public interface UmsRoleService {
      */
     UmsRole insert(UmsRole umsRole);
 
-    /**
-     * 修改数据
-     *
-     * @param umsRole 实例对象
-     * @return 实例对象
-     */
-    UmsRole update(UmsRole umsRole);
 
     /**
      * 通过主键删除数据

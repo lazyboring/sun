@@ -1,12 +1,12 @@
 package com.niec.mall.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.niec.mall.dao.UmsRoleMapper;
 import com.niec.mall.entity.UmsRole;
-import com.niec.mall.dao.UmsRoleDao;
 import com.niec.mall.service.UmsRoleService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * 后台用户角色表(UmsRole)表服务实现类
@@ -15,9 +15,9 @@ import java.util.List;
  * @since 2020-03-16 11:01:51
  */
 @Service("umsRoleService")
-public class UmsRoleServiceImpl implements UmsRoleService {
+public class UmsRoleServiceImpl extends ServiceImpl<UmsRoleMapper,UmsRole> implements UmsRoleService {
     @Resource
-    private UmsRoleDao umsRoleDao;
+    private UmsRoleMapper umsRoleMapper;
 
     /**
      * 通过ID查询单条数据
@@ -27,20 +27,9 @@ public class UmsRoleServiceImpl implements UmsRoleService {
      */
     @Override
     public UmsRole queryById(Long id) {
-        return this.umsRoleDao.queryById(id);
+        return this.umsRoleMapper.selectById(id);
     }
 
-    /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
-     */
-    @Override
-    public List<UmsRole> queryAllByLimit(int offset, int limit) {
-        return this.umsRoleDao.queryAllByLimit(offset, limit);
-    }
 
     /**
      * 新增数据
@@ -50,21 +39,11 @@ public class UmsRoleServiceImpl implements UmsRoleService {
      */
     @Override
     public UmsRole insert(UmsRole umsRole) {
-        this.umsRoleDao.insert(umsRole);
+        this.umsRoleMapper.insert(umsRole);
         return umsRole;
     }
 
-    /**
-     * 修改数据
-     *
-     * @param umsRole 实例对象
-     * @return 实例对象
-     */
-    @Override
-    public UmsRole update(UmsRole umsRole) {
-        this.umsRoleDao.update(umsRole);
-        return this.queryById(umsRole.getId());
-    }
+
 
     /**
      * 通过主键删除数据
@@ -74,6 +53,6 @@ public class UmsRoleServiceImpl implements UmsRoleService {
      */
     @Override
     public boolean deleteById(Long id) {
-        return this.umsRoleDao.deleteById(id) > 0;
+        return this.umsRoleMapper.deleteById(id) > 0;
     }
 }

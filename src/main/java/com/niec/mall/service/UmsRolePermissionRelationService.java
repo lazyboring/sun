@@ -1,7 +1,6 @@
 package com.niec.mall.service;
 
 import com.niec.mall.entity.UmsRolePermissionRelation;
-import java.util.List;
 
 /**
  * 后台用户角色和权限关系表(UmsRolePermissionRelation)表服务接口
@@ -19,14 +18,7 @@ public interface UmsRolePermissionRelationService {
      */
     UmsRolePermissionRelation queryById(Long id);
 
-    /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
-     */
-    List<UmsRolePermissionRelation> queryAllByLimit(int offset, int limit);
+
 
     /**
      * 新增数据
@@ -36,13 +28,6 @@ public interface UmsRolePermissionRelationService {
      */
     UmsRolePermissionRelation insert(UmsRolePermissionRelation umsRolePermissionRelation);
 
-    /**
-     * 修改数据
-     *
-     * @param umsRolePermissionRelation 实例对象
-     * @return 实例对象
-     */
-    UmsRolePermissionRelation update(UmsRolePermissionRelation umsRolePermissionRelation);
 
     /**
      * 通过主键删除数据

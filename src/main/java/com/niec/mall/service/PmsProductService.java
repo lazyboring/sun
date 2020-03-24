@@ -1,11 +1,6 @@
 package com.niec.mall.service;
 
-import com.niec.mall.dto.PmsProductDto;
-import com.niec.mall.dto.ProductDto;
 import com.niec.mall.entity.PmsProduct;
-import com.niec.mall.vo.PmsProductVo;
-
-import java.util.List;
 
 /**
  * 商品信息(PmsProduct)表服务接口
@@ -24,15 +19,6 @@ public interface PmsProductService {
     PmsProduct queryById(Long id);
 
     /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
-     */
-    List<PmsProduct> queryAllByLimit(int offset, int limit);
-
-    /**
      * 新增数据
      *
      * @param pmsProduct 实例对象
@@ -40,14 +26,6 @@ public interface PmsProductService {
      */
     PmsProduct insert(PmsProduct pmsProduct);
 
-    /**
-     * 修改数据
-     *
-     * @param pmsProduct 实例对象
-     * @param productDto
-     * @return 实例对象
-     */
-    PmsProduct update(PmsProductDto productDto);
 
     /**
      * 通过主键删除数据
@@ -57,10 +35,5 @@ public interface PmsProductService {
      */
     boolean deleteById(Long id);
 
-    /**
-     * 查询列表
-     * @param id
-     * @return
-     */
-    List<PmsProductVo> queryListByStatus(ProductDto productDto);
+
 }

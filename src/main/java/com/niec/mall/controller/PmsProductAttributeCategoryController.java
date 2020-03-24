@@ -1,9 +1,13 @@
 package com.niec.mall.controller;
 
+import com.alibaba.druid.sql.visitor.functions.Insert;
+import com.niec.mall.dto.PmsProductAttributeCategoryDto;
 import com.niec.mall.entity.PmsProductAttributeCategory;
 import com.niec.mall.service.PmsProductAttributeCategoryService;
+import com.niec.mall.vo.ResultJson;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -36,4 +40,10 @@ public class PmsProductAttributeCategoryController {
         return this.pmsProductAttributeCategoryService.queryById(id);
     }
 
+
+    @ApiOperation(value = "新增")
+    @PostMapping("add")
+    public ResultJson createPmsProductAttributeCategory(@RequestBody @Validated(Insert.class) PmsProductAttributeCategoryDto pmsProductAttributeCategoryDto){
+            return ResultJson.ok(1);
+    }
 }

@@ -1,9 +1,7 @@
 package com.niec.mall.controller;
 
-import com.niec.mall.dto.UserRoleDto;
 import com.niec.mall.entity.UmsAdmin;
 import com.niec.mall.service.UmsAdminService;
-import com.niec.mall.vo.ResultJson;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,16 +39,6 @@ public class UmsAdminController {
     }
 
 
-    @ApiOperation(value = "查询用户列表")
-    @GetMapping("list")
-    public ResultJson queryListByStatus(Integer status){
-        return ResultJson.ok(umsAdminService.queryListByStatus(status));
-    }
 
-    @ApiOperation(value = "根据用户查询用户权限")
-    @GetMapping("userRole")
-    public ResultJson queryUserRole(UserRoleDto userRoleDto){
-        return ResultJson.ok(umsAdminService.queryUserAuthority(userRoleDto.getId()));
-    }
 
 }

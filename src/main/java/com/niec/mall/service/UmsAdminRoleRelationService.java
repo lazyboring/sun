@@ -1,7 +1,6 @@
 package com.niec.mall.service;
 
 import com.niec.mall.entity.UmsAdminRoleRelation;
-import java.util.List;
 
 /**
  * 后台用户和角色关系表(UmsAdminRoleRelation)表服务接口
@@ -20,15 +19,6 @@ public interface UmsAdminRoleRelationService {
     UmsAdminRoleRelation queryById(Long id);
 
     /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
-     */
-    List<UmsAdminRoleRelation> queryAllByLimit(int offset, int limit);
-
-    /**
      * 新增数据
      *
      * @param umsAdminRoleRelation 实例对象
@@ -36,13 +26,7 @@ public interface UmsAdminRoleRelationService {
      */
     UmsAdminRoleRelation insert(UmsAdminRoleRelation umsAdminRoleRelation);
 
-    /**
-     * 修改数据
-     *
-     * @param umsAdminRoleRelation 实例对象
-     * @return 实例对象
-     */
-    UmsAdminRoleRelation update(UmsAdminRoleRelation umsAdminRoleRelation);
+
 
     /**
      * 通过主键删除数据

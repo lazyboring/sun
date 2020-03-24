@@ -67,7 +67,7 @@ public class CommodityServiceImpl extends ServiceImpl<CommodityMapper, Commodity
     @Override
     public CommodityDto add(CommodityDto commodityDto) {
         Commodity commodity = new Commodity();
-        BeanUtils.copyProperties(commodityDto,commodity);
+        BeanUtils.copyProperties(commodityDto,commodity,"id");
         baseMapper.insert(commodity);
         commodityDto.setId(commodity.getId());
         return commodityDto;

@@ -1,7 +1,8 @@
 package com.niec.mall.dto;
 
-import com.alibaba.druid.sql.visitor.functions.Insert;
-import com.baomidou.mybatisplus.core.conditions.update.Update;
+
+import com.niec.mall.constant.Insert;
+import com.niec.mall.constant.Update;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 

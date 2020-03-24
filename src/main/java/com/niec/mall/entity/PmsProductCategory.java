@@ -6,10 +6,10 @@ import java.io.Serializable;
  * 产品分类(PmsProductCategory)实体类
  *
  * @author makejava
- * @since 2020-03-16 11:01:51
+ * @since 2020-03-23 20:02:52
  */
 public class PmsProductCategory implements Serializable {
-    private static final long serialVersionUID = 763245434798420512L;
+    private static final long serialVersionUID = -67895278965228327L;
     
     private Long id;
     /**

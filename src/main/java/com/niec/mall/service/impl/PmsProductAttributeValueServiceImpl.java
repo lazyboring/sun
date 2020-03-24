@@ -1,12 +1,12 @@
 package com.niec.mall.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.niec.mall.entity.PmsProductAttributeValue;
-import com.niec.mall.dao.PmsProductAttributeValueDao;
+import com.niec.mall.dao.PmsProductAttributeValueMapper;
 import com.niec.mall.service.PmsProductAttributeValueService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * 存储产品参数信息的表(PmsProductAttributeValue)表服务实现类
@@ -15,9 +15,9 @@ import java.util.List;
  * @since 2020-03-16 11:01:51
  */
 @Service("pmsProductAttributeValueService")
-public class PmsProductAttributeValueServiceImpl implements PmsProductAttributeValueService {
+public class PmsProductAttributeValueServiceImpl extends ServiceImpl<PmsProductAttributeValueMapper,PmsProductAttributeValue> implements PmsProductAttributeValueService {
     @Resource
-    private PmsProductAttributeValueDao pmsProductAttributeValueDao;
+    private PmsProductAttributeValueMapper pmsProductAttributeValueMapper;
 
     /**
      * 通过ID查询单条数据
@@ -27,20 +27,9 @@ public class PmsProductAttributeValueServiceImpl implements PmsProductAttributeV
      */
     @Override
     public PmsProductAttributeValue queryById(Long id) {
-        return this.pmsProductAttributeValueDao.queryById(id);
+        return this.pmsProductAttributeValueMapper.selectById(id);
     }
 
-    /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
-     */
-    @Override
-    public List<PmsProductAttributeValue> queryAllByLimit(int offset, int limit) {
-        return this.pmsProductAttributeValueDao.queryAllByLimit(offset, limit);
-    }
 
     /**
      * 新增数据
@@ -50,21 +39,10 @@ public class PmsProductAttributeValueServiceImpl implements PmsProductAttributeV
      */
     @Override
     public PmsProductAttributeValue insert(PmsProductAttributeValue pmsProductAttributeValue) {
-        this.pmsProductAttributeValueDao.insert(pmsProductAttributeValue);
+        this.pmsProductAttributeValueMapper.insert(pmsProductAttributeValue);
         return pmsProductAttributeValue;
     }
 
-    /**
-     * 修改数据
-     *
-     * @param pmsProductAttributeValue 实例对象
-     * @return 实例对象
-     */
-    @Override
-    public PmsProductAttributeValue update(PmsProductAttributeValue pmsProductAttributeValue) {
-        this.pmsProductAttributeValueDao.update(pmsProductAttributeValue);
-        return this.queryById(pmsProductAttributeValue.getId());
-    }
 
     /**
      * 通过主键删除数据
@@ -74,6 +52,6 @@ public class PmsProductAttributeValueServiceImpl implements PmsProductAttributeV
      */
     @Override
     public boolean deleteById(Long id) {
-        return this.pmsProductAttributeValueDao.deleteById(id) > 0;
+        return this.pmsProductAttributeValueMapper.deleteById(id) > 0;
     }
 }
