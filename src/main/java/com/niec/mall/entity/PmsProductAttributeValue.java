@@ -1,5 +1,7 @@
 package com.niec.mall.entity;
 
+import lombok.Data;
+
 import java.io.Serializable;
 
 /**
@@ -8,6 +10,7 @@ import java.io.Serializable;
  * @author makejava
  * @since 2020-03-16 11:01:51
  */
+@Data
 public class PmsProductAttributeValue implements Serializable {
     private static final long serialVersionUID = -24862429931636383L;
     
@@ -22,36 +25,5 @@ public class PmsProductAttributeValue implements Serializable {
     private String value;
 
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
-
-    public Long getProductAttributeId() {
-        return productAttributeId;
-    }
-
-    public void setProductAttributeId(Long productAttributeId) {
-        this.productAttributeId = productAttributeId;
-    }
-
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
 
 }

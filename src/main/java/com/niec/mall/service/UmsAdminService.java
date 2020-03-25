@@ -1,5 +1,6 @@
 package com.niec.mall.service;
 
+import com.niec.mall.dto.UmsAdminDto;
 import com.niec.mall.entity.UmsAdmin;
 
 /**
@@ -37,4 +38,5 @@ public interface UmsAdminService {
     boolean deleteById(Long id);
 
 
+    void addUmsAdmin(UmsAdminDto umsAdminDto);
 }

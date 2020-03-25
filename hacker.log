@@ -1,0 +1,33 @@
+2020-03-24 11:39:06.641  INFO 4812 --- [restartedMain] com.niec.mall.HackerApplication          : Starting HackerApplication on MICRO-002251042 with PID 4812 (E:\xuexi\vhr-master\hacker\target\classes started by Administrator in E:\xuexi\vhr-master\hacker)
+2020-03-24 11:39:06.643  INFO 4812 --- [restartedMain] com.niec.mall.HackerApplication          : No active profile set, falling back to default profiles: default
+2020-03-24 11:39:06.667  INFO 4812 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-03-24 11:39:06.667  INFO 4812 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-03-24 11:39:07.605  INFO 4812 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$326a6152] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-03-24 11:39:07.780  INFO 4812 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8089 (http)
+2020-03-24 11:39:07.794  INFO 4812 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-24 11:39:07.794  INFO 4812 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.22]
+2020-03-24 11:39:07.848  INFO 4812 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-24 11:39:07.848  INFO 4812 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 856 ms
+2020-03-24 11:39:07.984  INFO 4812 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-03-24 11:39:08.538  INFO 4812 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2020-03-24 11:39:08.605  INFO 4812 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-24 11:39:08.626  INFO 4812 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-03-24 11:39:08.714  INFO 4812 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-03-24 11:39:08.723  INFO 4812 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-03-24 11:39:08.745  INFO 4812 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-03-24 11:39:08.818  INFO 4812 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: selectOneUsingGET_1
+2020-03-24 11:39:08.822  INFO 4812 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: selectOneUsingGET_2
+2020-03-24 11:39:08.824  INFO 4812 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: selectOneUsingGET_3
+2020-03-24 11:39:08.827  INFO 4812 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: selectOneUsingGET_4
+2020-03-24 11:39:08.835  INFO 4812 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: selectOneUsingGET_5
+2020-03-24 11:39:08.838  INFO 4812 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: selectOneUsingGET_6
+2020-03-24 11:39:08.839  INFO 4812 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: selectOneUsingGET_7
+2020-03-24 11:39:08.841  INFO 4812 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: selectOneUsingGET_8
+2020-03-24 11:39:08.843  INFO 4812 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: selectOneUsingGET_9
+2020-03-24 11:39:08.845  INFO 4812 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: selectOneUsingGET_10
+2020-03-24 11:39:08.847  INFO 4812 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: selectOneUsingGET_11
+2020-03-24 11:39:08.868  INFO 4812 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8089 (http) with context path ''
+2020-03-24 11:39:08.869  INFO 4812 --- [restartedMain] com.niec.mall.HackerApplication          : Started HackerApplication in 2.415 seconds (JVM running for 2.793)
+2020-03-24 11:39:13.360  INFO 4812 --- [http-nio-8089-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-24 11:39:13.361  INFO 4812 --- [http-nio-8089-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-24 11:39:13.365  INFO 4812 --- [http-nio-8089-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms

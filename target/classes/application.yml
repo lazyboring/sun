@@ -11,3 +11,6 @@ spring:
 mybatis-plus:
   mapper-locations: classpath:/mapper/*Dao.xml
   type-aliases-package: com.niec.mall.entity
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true

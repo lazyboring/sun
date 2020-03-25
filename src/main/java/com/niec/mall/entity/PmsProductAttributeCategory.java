@@ -1,5 +1,7 @@
 package com.niec.mall.entity;
 
+import lombok.Data;
+
 import java.io.Serializable;
 
 /**
@@ -8,6 +10,7 @@ import java.io.Serializable;
  * @author makejava
  * @since 2020-03-16 11:01:51
  */
+@Data
 public class PmsProductAttributeCategory implements Serializable {
     private static final long serialVersionUID = 548410088712939578L;
     
@@ -24,36 +27,5 @@ public class PmsProductAttributeCategory implements Serializable {
     private Integer paramCount;
 
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getAttributeCount() {
-        return attributeCount;
-    }
-
-    public void setAttributeCount(Integer attributeCount) {
-        this.attributeCount = attributeCount;
-    }
-
-    public Integer getParamCount() {
-        return paramCount;
-    }
-
-    public void setParamCount(Integer paramCount) {
-        this.paramCount = paramCount;
-    }
 
 }
