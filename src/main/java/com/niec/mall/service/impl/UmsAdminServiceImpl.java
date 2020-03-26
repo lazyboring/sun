@@ -3,6 +3,7 @@ package com.niec.mall.service.impl;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.niec.mall.dao.UmsAdminMapper;
 import com.niec.mall.dto.UmsAdminDto;
+import com.niec.mall.dto.UserDto;
 import com.niec.mall.entity.UmsAdmin;
 import com.niec.mall.service.UmsAdminService;
 import org.springframework.beans.BeanUtils;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * 后台用户表(UmsAdmin)表服务实现类
@@ -65,6 +67,11 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper,UmsAdmin> im
         BeanUtils.copyProperties(umsAdminDto, umsAdmin, "id");
         String uuid = String.valueOf(System.currentTimeMillis() - 1300000000000L);
 
+    }
+
+    @Override
+    public List<UserDto> getUserList() {
+        return umsAdminMapper.selectUserDtoList();
     }
 
 }

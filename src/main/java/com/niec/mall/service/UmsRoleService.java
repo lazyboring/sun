@@ -1,6 +1,9 @@
 package com.niec.mall.service;
 
+import com.niec.mall.entity.UmsAdmin;
 import com.niec.mall.entity.UmsRole;
+
+import java.util.List;
 
 /**
  * 后台用户角色表(UmsRole)表服务接口
@@ -36,4 +39,5 @@ public interface UmsRoleService {
      */
     boolean deleteById(Long id);
 
+    List<UmsAdmin> getUserListById(Long id);
 }

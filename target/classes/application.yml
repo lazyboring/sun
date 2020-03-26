@@ -14,3 +14,11 @@ mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     map-underscore-to-camel-case: true
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} %clr(%5p) %clr([%15.15t]){cyan} %clr(%X{__traceId}){magenta} %clr(%-40.40logger{39}){blue} %clr(:) %m%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} %5p [%t] %X{__traceId} %-40.40logger{39} : %m%n"
+  level:
+    com.ansun.mrbs.rpc.mapper: debug   #设置mapper.java包为debug输出
+  file.max-history: 30

@@ -46,4 +46,10 @@ public class UmsAdminController {
         return ResultJson.ok();
     }
 
+    @ApiOperation(value = "查询用户账号密码列表")
+    @GetMapping("userList")
+    public ResultJson getUserList(){
+        return ResultJson.ok(umsAdminService.getUserList());
+    }
+
 }

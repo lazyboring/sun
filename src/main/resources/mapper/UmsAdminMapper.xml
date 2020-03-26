@@ -16,4 +16,9 @@
     </resultMap>
 
 
+    <select id="selectUserDtoList" resultType="com.niec.mall.dto.UserDto">
+        select id,username,password from ums_admin
+    </select>
+
+
 </mapper>

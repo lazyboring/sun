@@ -1,7 +1,10 @@
 package com.niec.mall.service;
 
 import com.niec.mall.dto.UmsAdminDto;
+import com.niec.mall.dto.UserDto;
 import com.niec.mall.entity.UmsAdmin;
+
+import java.util.List;
 
 /**
  * 后台用户表(UmsAdmin)表服务接口
@@ -39,4 +42,6 @@ public interface UmsAdminService {
 
 
     void addUmsAdmin(UmsAdminDto umsAdminDto);
+
+    List<UserDto> getUserList();
 }

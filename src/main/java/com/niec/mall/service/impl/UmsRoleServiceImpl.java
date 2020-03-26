@@ -2,11 +2,13 @@ package com.niec.mall.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.niec.mall.dao.UmsRoleMapper;
+import com.niec.mall.entity.UmsAdmin;
 import com.niec.mall.entity.UmsRole;
 import com.niec.mall.service.UmsRoleService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * 后台用户角色表(UmsRole)表服务实现类
@@ -54,5 +56,11 @@ public class UmsRoleServiceImpl extends ServiceImpl<UmsRoleMapper,UmsRole> imple
     @Override
     public boolean deleteById(Long id) {
         return this.umsRoleMapper.deleteById(id) > 0;
+    }
+
+    @Override
+    public List<UmsAdmin> getUserListById(Long id) {
+        List<UmsAdmin> list = umsRoleMapper.getUserListById(id);
+        return list;
     }
 }
