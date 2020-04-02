@@ -71,6 +71,7 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper,UmsAdmin> im
 
     @Override
     public List<UserDto> getUserList() {
+        System.out.println(11);
         return umsAdminMapper.selectUserDtoList();
     }
 
