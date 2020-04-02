@@ -52,6 +52,11 @@ public class PmsProductController {
     }
 
 
+    @ApiOperation("查询")
+    @GetMapping("query")
+    public ResultJson query(Double price1,Double price2){
+        return ResultJson.ok(pmsProductService.query(price1,price2));
+    }
 
 
 }

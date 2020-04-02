@@ -2,6 +2,8 @@ package com.niec.mall.service;
 
 import com.niec.mall.entity.PmsProduct;
 
+import java.util.List;
+
 /**
  * 商品信息(PmsProduct)表服务接口
  *
@@ -36,4 +38,5 @@ public interface PmsProductService {
     boolean deleteById(Long id);
 
 
+    List<PmsProduct> query(Double price1, Double price2);
 }

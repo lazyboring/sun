@@ -1,5 +1,7 @@
 package com.niec.mall.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.niec.mall.dao.PmsProductMapper;
 import com.niec.mall.entity.PmsProduct;
@@ -9,6 +11,7 @@ import com.niec.mall.service.PmsProductService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * 商品信息(PmsProduct)表服务实现类
@@ -60,6 +63,17 @@ public class PmsProductServiceImpl extends ServiceImpl<PmsProductMapper,PmsProdu
             throw new HackerBusinessException(HackerBusinessEnum.OPERATING_OBJECT_IS_NULL);
         }
         return this.pmsProductMapper.deleteById(id) > 0;
+    }
+
+    @Override
+    public List<PmsProduct> query(Double price1, Double price2) {
+//        QueryWrapper<PmsProduct> pmsProductQueryWrapper = new QueryWrapper<>();
+//        pmsProductQueryWrapper.ge("price",price1).and().le("price",price2);
+        LambdaQueryWrapper<PmsProduct> queryWrapper = new QueryWrapper<PmsProduct>().lambda();
+        queryWrapper.ge(PmsProduct::getPrice,price1).le(PmsProduct::getPrice,price2);
+        List<PmsProduct> pmsProductList = pmsProductMapper.selectList(queryWrapper);
+        pmsProductList.forEach(System.out::println);
+        return pmsProductList;
     }
 
 

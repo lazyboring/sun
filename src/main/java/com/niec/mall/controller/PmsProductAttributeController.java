@@ -2,6 +2,7 @@ package com.niec.mall.controller;
 
 import com.niec.mall.entity.PmsProductAttribute;
 import com.niec.mall.service.PmsProductAttributeService;
+import com.niec.mall.vo.ResultJson;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
@@ -36,5 +37,6 @@ public class PmsProductAttributeController {
     public PmsProductAttribute selectOne(Long id) {
         return this.pmsProductAttributeService.queryById(id);
     }
+
 
 }
