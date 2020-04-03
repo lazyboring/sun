@@ -59,7 +59,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
      */
     @Override
     public boolean deleteById(Long id) {
-        return this.userMapper.deleteById(id) > 0;
+        return userMapper.deleteById(id)>0;
     }
 
     @Override
