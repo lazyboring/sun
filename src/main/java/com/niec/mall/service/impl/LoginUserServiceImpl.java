@@ -25,9 +25,7 @@ public class LoginUserServiceImpl extends ServiceImpl<LoginUserMapper, LoginUser
 
     @Override
     public LoginUser findByUsername(LoginUser user) {
-        QueryWrapper<LoginUser> queryWrapper = new QueryWrapper<>();
-        queryWrapper.select("username",user.getUsername());
-        LoginUser loginUser = loginUserMapper.selectOne(queryWrapper);
-        return loginUser;
+
+        return loginUserMapper.selectByUsername(user.getUsername());
     }
 }

@@ -22,19 +22,20 @@ public class LoginUserController {
     LoginUserService userService;
     @Autowired
     TokenService tokenService;
+
     //登录
     @PostMapping("/login")
-    public Object login(@RequestBody LoginUser user){
-        JSONObject jsonObject=new JSONObject();
-      LoginUser userForBase=userService.findByUsername(user);
-        if(userForBase==null){
-            jsonObject.put("message","登录失败,用户不存在");
+    public Object login(@RequestBody LoginUser user) {
+        JSONObject jsonObject = new JSONObject();
+        LoginUser userForBase = userService.findByUsername(user);
+        if (userForBase == null) {
+            jsonObject.put("message", "登录失败,用户不存在");
             return jsonObject;
-        }else {
-            if (!userForBase.getPassword().equals(user.getPassword())){
-                jsonObject.put("message","登录失败,密码错误");
+        } else {
+            if (!userForBase.getPassword().equals(user.getPassword())) {
+                jsonObject.put("message", "登录失败,密码错误");
                 return jsonObject;
-            }else {
+            } else {
                 String token = tokenService.getToken(userForBase);
                 jsonObject.put("token", token);
                 jsonObject.put("user", userForBase);
@@ -42,9 +43,10 @@ public class LoginUserController {
             }
         }
     }
+
     @UserLoginToken
     @GetMapping("/getMessage")
-    public String getMessage(){
+    public String getMessage() {
         return "你已通过验证";
     }
 }
