@@ -43,12 +43,24 @@ public class CommodityController {
 
     @ApiOperation(value = "添加商品")
     @PostMapping()
-    public ResultJson add(@RequestBody @Validated(Insert.class) CommodityDto commodityDto){
+    public ResultJson add(@RequestBody @Validated(Insert.class) CommodityDto commodityDto) {
         return ResultJson.ok(commodityService.add(commodityDto));
     }
+
     @ApiOperation("更新")
     @PutMapping("update")
-    public ResultJson update(@RequestBody @Validated(Update.class) CommodityDto commodityDto){
+    public ResultJson update(@RequestBody @Validated(Update.class) CommodityDto commodityDto) {
         return ResultJson.ok(commodityService.update(commodityDto));
+    }
+
+    @ApiOperation("批量增加")
+    @PostMapping("list")
+    public ResultJson addList(String...adf){
+        return ResultJson.ok();
+    }
+    @ApiOperation("删除")
+    @DeleteMapping("delete")
+    public ResultJson delete(String id){
+        return ResultJson.ok();
     }
 }
