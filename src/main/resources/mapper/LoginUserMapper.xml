@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dao.LoginUserDao">
+<mapper namespace="com.niec.mall.mapper.LoginUserMapper">
 
-    <resultMap type="com.entity.LoginUser" id="LoginUserMap">
+    <resultMap type="com.niec.mall.entity.LoginUser" id="LoginUserMap">
         <result property="id" column="id" jdbcType="VARCHAR"/>
         <result property="username" column="username" jdbcType="VARCHAR"/>
         <result property="password" column="password" jdbcType="VARCHAR"/>
@@ -13,7 +13,7 @@
         select
           id, username, password
         from mall_tiny.login_user
-        where id = #{id}
+        where username = #{username}
     </select>
 
 

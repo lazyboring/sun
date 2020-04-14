@@ -1,8 +1,7 @@
 package com.niec.mall.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.niec.mall.dao.LoginUserMapper;
+import com.niec.mall.mapper.LoginUserMapper;
 import com.niec.mall.entity.LoginUser;
 import com.niec.mall.service.LoginUserService;
 import org.springframework.stereotype.Service;

@@ -1,7 +1,7 @@
 package com.niec.mall.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.niec.mall.dao.CommodityMapper;
+import com.niec.mall.mapper.CommodityMapper;
 import com.niec.mall.dto.CommodityDto;
 import com.niec.mall.entity.Commodity;
 import com.niec.mall.enums.HackerBusinessEnum;

@@ -1,7 +1,7 @@
 package com.niec.mall.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.niec.mall.dao.UmsRoleMapper;
+import com.niec.mall.mapper.UmsRoleMapper;
 import com.niec.mall.entity.UmsAdmin;
 import com.niec.mall.entity.UmsRole;
 import com.niec.mall.service.UmsRoleService;

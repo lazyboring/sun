@@ -1,7 +1,7 @@
 package com.niec.mall.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.niec.mall.dao.PmsProductAttributeCategoryMapper;
+import com.niec.mall.mapper.PmsProductAttributeCategoryMapper;
 import com.niec.mall.entity.PmsProductAttributeCategory;
 import com.niec.mall.service.PmsProductAttributeCategoryService;
 import org.springframework.stereotype.Service;

@@ -3,7 +3,7 @@ package com.niec.mall.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.niec.mall.dao.PmsProductMapper;
+import com.niec.mall.mapper.PmsProductMapper;
 import com.niec.mall.entity.PmsProduct;
 import com.niec.mall.enums.HackerBusinessEnum;
 import com.niec.mall.exception.HackerBusinessException;

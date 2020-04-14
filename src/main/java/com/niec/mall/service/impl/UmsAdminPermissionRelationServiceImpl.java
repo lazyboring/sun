@@ -1,7 +1,7 @@
 package com.niec.mall.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.niec.mall.dao.UmsAdminPermissionRelationMapper;
+import com.niec.mall.mapper.UmsAdminPermissionRelationMapper;
 import com.niec.mall.entity.UmsAdminPermissionRelation;
 import com.niec.mall.service.UmsAdminPermissionRelationService;
 import org.springframework.stereotype.Service;

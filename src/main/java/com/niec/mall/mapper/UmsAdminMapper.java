@@ -1,4 +1,4 @@
-package com.niec.mall.dao;
+package com.niec.mall.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.niec.mall.dto.UserDto;

@@ -1,7 +1,7 @@
 package com.niec.mall.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.niec.mall.dao.UmsAdminMapper;
+import com.niec.mall.mapper.UmsAdminMapper;
 import com.niec.mall.dto.UmsAdminDto;
 import com.niec.mall.dto.UserDto;
 import com.niec.mall.entity.UmsAdmin;
