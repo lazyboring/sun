@@ -1,10 +1,15 @@
 package com.niec.mall.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.niec.mall.enums.HackerBusinessEnum;
+import com.niec.mall.exception.HackerBusinessException;
 import com.niec.mall.mapper.PmsProductCategoryMapper;
 import com.niec.mall.entity.PmsProductCategory;
 import com.niec.mall.service.PmsProductCategoryService;
+import com.niec.mall.vo.ResultJson;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.annotation.Resource;
 
@@ -53,5 +58,22 @@ public class PmsProductCategoryServiceImpl extends ServiceImpl<PmsProductCategor
     @Override
     public boolean deleteById(Long id) {
         return this.pmsProductCategoryMapper.deleteById(id) > 0;
+    }
+
+    @Override
+    public ResultJson saleProduct(String name, Integer num) {
+        QueryWrapper<PmsProductCategory> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("name",name);
+        PmsProductCategory pmsProductCategory = baseMapper.selectOne(queryWrapper);
+        if (pmsProductCategory.getProductCount()<=0){
+            throw new HackerBusinessException(HackerBusinessEnum.PRODUCT_CONUT_IS_ZERO);
+        }
+
+        if (pmsProductCategory.getProductCount()<num){
+            throw new HackerBusinessException(HackerBusinessEnum.PRODUCT_CONUT_IS_Less);
+        }
+
+        //pmsProductCategoryMapper.reduceInventory(name,num);
+
     }
 }

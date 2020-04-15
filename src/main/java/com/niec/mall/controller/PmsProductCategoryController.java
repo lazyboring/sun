@@ -2,6 +2,7 @@ package com.niec.mall.controller;
 
 import com.niec.mall.entity.PmsProductCategory;
 import com.niec.mall.service.PmsProductCategoryService;
+import com.niec.mall.vo.ResultJson;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
@@ -37,7 +38,9 @@ public class PmsProductCategoryController {
     }
 
 
-
-
-
+    @ApiOperation(value = "购买商品")
+    @PostMapping("sale")
+    public ResultJson saleProduct(@RequestParam(required = true)String name,@RequestParam(required = true)Integer num){
+        return pmsProductCategoryService.saleProduct(name,num);
+    }
 }

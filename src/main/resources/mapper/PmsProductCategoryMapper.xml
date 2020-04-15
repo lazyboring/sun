@@ -18,5 +18,7 @@
 <!--    </resultMap>-->
 
 
+    <update id="reduceInventory">
 
+    </update>
 </mapper>

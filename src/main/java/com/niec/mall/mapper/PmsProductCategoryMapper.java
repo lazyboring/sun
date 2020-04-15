@@ -14,4 +14,7 @@ import org.apache.ibatis.annotations.Mapper;
 public interface PmsProductCategoryMapper extends BaseMapper<PmsProductCategory> {
 
 
+
+
+    Integer reduceInventory(String name, Integer num);
 }
