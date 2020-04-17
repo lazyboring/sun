@@ -16,5 +16,5 @@ public interface PmsProductCategoryMapper extends BaseMapper<PmsProductCategory>
 
 
 
-    Integer reduceInventory(String name, Integer num);
+    int reduceInventory(String name, Integer num);
 }

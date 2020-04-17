@@ -7,9 +7,7 @@ import com.niec.mall.exception.HackerBusinessException;
 import com.niec.mall.mapper.PmsProductCategoryMapper;
 import com.niec.mall.entity.PmsProductCategory;
 import com.niec.mall.service.PmsProductCategoryService;
-import com.niec.mall.vo.ResultJson;
 import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.annotation.Resource;
 
@@ -20,7 +18,7 @@ import javax.annotation.Resource;
  * @since 2020-03-16 11:01:51
  */
 @Service("pmsProductCategoryService")
-public class PmsProductCategoryServiceImpl extends ServiceImpl<PmsProductCategoryMapper,PmsProductCategory> implements PmsProductCategoryService {
+public class PmsProductCategoryServiceImpl extends ServiceImpl<PmsProductCategoryMapper, PmsProductCategory> implements PmsProductCategoryService {
     @Resource
     private PmsProductCategoryMapper pmsProductCategoryMapper;
 
@@ -61,19 +59,19 @@ public class PmsProductCategoryServiceImpl extends ServiceImpl<PmsProductCategor
     }
 
     @Override
-    public ResultJson saleProduct(String name, Integer num) {
+    public int saleProduct(String name, Integer num) {
         QueryWrapper<PmsProductCategory> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("name",name);
+        queryWrapper.eq("name", name);
         PmsProductCategory pmsProductCategory = baseMapper.selectOne(queryWrapper);
-        if (pmsProductCategory.getProductCount()<=0){
+        if (pmsProductCategory.getProductCount() <= 0) {
             throw new HackerBusinessException(HackerBusinessEnum.PRODUCT_CONUT_IS_ZERO);
         }
 
-        if (pmsProductCategory.getProductCount()<num){
+        if (pmsProductCategory.getProductCount() < num) {
             throw new HackerBusinessException(HackerBusinessEnum.PRODUCT_CONUT_IS_Less);
         }
 
-        //pmsProductCategoryMapper.reduceInventory(name,num);
-
+        Integer integer = pmsProductCategoryMapper.reduceInventory(name, num);
+        return integer;
     }
 }

@@ -1,7 +1,6 @@
 package com.niec.mall.service;
 
 import com.niec.mall.entity.PmsProductCategory;
-import com.niec.mall.vo.ResultJson;
 
 /**
  * 产品分类(PmsProductCategory)表服务接口
@@ -38,5 +37,5 @@ public interface PmsProductCategoryService {
      */
     boolean deleteById(Long id);
 
-    ResultJson saleProduct(String name, Integer num);
+    int saleProduct(String name, Integer num);
 }

@@ -41,6 +41,6 @@ public class PmsProductCategoryController {
     @ApiOperation(value = "购买商品")
     @PostMapping("sale")
     public ResultJson saleProduct(@RequestParam(required = true)String name,@RequestParam(required = true)Integer num){
-        return pmsProductCategoryService.saleProduct(name,num);
+        return ResultJson.ok(pmsProductCategoryService.saleProduct(name,num));
     }
 }

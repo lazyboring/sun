@@ -19,6 +19,11 @@
 
 
     <update id="reduceInventory">
-
+        update
+            pms_product_category
+        set
+            product_count = product_count - #{param2}
+        where
+            name = #{param1}
     </update>
 </mapper>
