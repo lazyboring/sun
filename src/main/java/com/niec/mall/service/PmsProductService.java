@@ -39,4 +39,6 @@ public interface PmsProductService {
 
 
     List<PmsProduct> query(Double price1, Double price2);
+
+    int update(PmsProduct pmsProduct);
 }

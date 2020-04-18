@@ -5,10 +5,7 @@ import com.niec.mall.service.PmsProductService;
 import com.niec.mall.vo.ResultJson;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -41,24 +38,26 @@ public class PmsProductController {
     }
 
     /**
-     *
      * @param id
      * @return
      */
     @ApiOperation(value = "删除")
     @DeleteMapping("deleteProduct")
-    public ResultJson deleteProduct(Long id){
+    public ResultJson deleteProduct(Long id) {
         return ResultJson.ok(pmsProductService.deleteById(id));
     }
 
 
     @ApiOperation("查询")
     @GetMapping("query")
-    public ResultJson query(Double price1,Double price2){
-        return ResultJson.ok(pmsProductService.query(price1,price2));
+    public ResultJson query(Double price1, Double price2) {
+        return ResultJson.ok(pmsProductService.query(price1, price2));
     }
 
 
-
-
+    @ApiOperation("更新")
+    @PostMapping("update")
+    public ResultJson update(@RequestBody PmsProduct pmsProduct){
+        return ResultJson.ok(pmsProductService.update(pmsProduct));
+    }
 }

@@ -53,6 +53,7 @@ public class CommodityServiceImpl extends ServiceImpl<CommodityMapper, Commodity
      * @param commodityDto
      * @return
      */
+    @Override
     public CommodityDto update(CommodityDto commodityDto) {
         Commodity commodity = new Commodity();
         BeanUtils.copyProperties(commodityDto, commodity);

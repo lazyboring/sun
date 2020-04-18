@@ -8,6 +8,7 @@ import com.niec.mall.entity.PmsProduct;
 import com.niec.mall.enums.HackerBusinessEnum;
 import com.niec.mall.exception.HackerBusinessException;
 import com.niec.mall.service.PmsProductService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -74,6 +75,14 @@ public class PmsProductServiceImpl extends ServiceImpl<PmsProductMapper,PmsProdu
         List<PmsProduct> pmsProductList = pmsProductMapper.selectList(queryWrapper);
         pmsProductList.forEach(System.out::println);
         return pmsProductList;
+    }
+
+    @Override
+    public int update(PmsProduct pmsProduct) {
+
+        PmsProduct pmsProduct1 = new PmsProduct();
+        BeanUtils.copyProperties(pmsProduct,pmsProduct1);
+        return baseMapper.insert(pmsProduct1);
     }
 
 
