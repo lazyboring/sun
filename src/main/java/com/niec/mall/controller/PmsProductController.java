@@ -60,4 +60,6 @@ public class PmsProductController {
     public ResultJson update(@RequestBody PmsProduct pmsProduct){
         return ResultJson.ok(pmsProductService.update(pmsProduct));
     }
+
+
 }

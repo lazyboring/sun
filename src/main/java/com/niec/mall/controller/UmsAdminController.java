@@ -52,4 +52,7 @@ public class UmsAdminController {
         return ResultJson.ok(umsAdminService.getUserList());
     }
 
+
+
+
 }
